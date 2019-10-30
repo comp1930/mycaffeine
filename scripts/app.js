@@ -1,10 +1,17 @@
-
+//=================================================
+// This files contains all the javascript functions
+// used in the project
+//
+// @author Carly Orr
+// @version 1.0
+//=================================================
 
 // ---------------------------------------------
 // Display the current Caffeine Count (id="caffeinecount")
 // ---------------------------------------------
 function showCaffeineCount(){
-  //var x=25;  // get this number from database
+  //var x=25;  // get this number from database eventually
+  // for now we assume this value is in localStorage
   var x=window.localStorage.getItem('num_cups');
   document.getElementById("caffeinecount").innerHTML = x;
 }
@@ -20,6 +27,9 @@ function showDate(){
 
 // ---------------------------------------------
 // Setup a Listener for the Logout button called "btnLogout"
+// When button is clicked, increment the "num_cups" variable.
+// Eventually this is saved in the database.
+// For now, we save it into LocalStorage.
 // ---------------------------------------------
 function setAddListener(){
   document.getElementById("addBtn").addEventListener("click", function(e) {
@@ -29,10 +39,11 @@ function setAddListener(){
   })
 }   
 
+// ---------------------------------------------
+// If the currently logged in user is authenticated,
+// then signout this person "user".
+// ---------------------------------------------
 function logoutUser(){
-  // for the currently logged in user
-  // call the signout function, then go back to index.html
-
   firebase.auth().onAuthStateChanged(function(user){
       var promise = firebase.auth().signOut();
       promise.then(function(){
@@ -41,6 +52,10 @@ function logoutUser(){
   });
 }
 
+// ---------------------------------------------
+// If the currently logged in user is authenticated,
+// then show the person's name in the header (id="name")
+// ---------------------------------------------
 function showName(){
   firebase.auth().onAuthStateChanged(function(user){
       console.log(user);
