@@ -1,5 +1,5 @@
 This is a web project that tracks a user's cups of caffeine.
-The files are organized as follows. 
+
 
 The top level contains these files:
 * index.html  (landing page)
