@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>My BCIT Project</title>
+  <meta name="comp1930 boilerplate code" content="my bcit project">
+  <meta name="author" content="BCIT">
+
+  <!-- Bootstrap for Mobile-first -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Optional styles and scripts of your own -->
+  <link rel="stylesheet" href="styles/style.css">
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+
+  <!-- The Firebase Authentication UI Library -->
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+
+  <!-- This is the configuration that connects my web files to my firebase project -->
+  <script src="scripts/firebase_config_carly.js"></script>
+
+</head>
+<body>
+
+  <!-- Where the common header navigation bar goes -->
+  <OBJECT width=100% data="common_header.html">
+      Warning: common_header.html could not be included.
+  </OBJECT>
+  
+  <!-- where the login container will be inserted -->
+  <h1 id="firebaseui-auth-container"></h1>
+
+  <!-- Where the common footer goes -->
+  <OBJECT width=100% data="common_footer.html">
+          Warning: common_footer.html could not be included.
+  </OBJECT>
+
+
+    <!-- The following chunk is copied from Firebase Authentication UI documentation -->
+    <script>
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+    var uiConfig = {
+      callbacks: {
+        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+          // User successfully signed in.
+          // Return type determines whether we continue the redirect automatically
+          // or whether we leave that to developer to handle.
+          return true;
+        },
+        uiShown: function() {
+          // The widget is rendered.
+          // Hide the loader.
+          document.getElementById('loader').style.display = 'none';
+        }
+      },
+      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+      signInFlow: 'popup',
+      signInSuccessUrl: 'main.html',
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        //firebase.auth.PhoneAuthProvider.PROVIDER_ID
+      ],
+      // Terms of service url.
+      tosUrl: 'main.html',
+      // Privacy policy url.
+      privacyPolicyUrl: 'main.html',
+        
+      accountChooserEnabled: false
+
+    };
+    
+    // The start method will wait until the DOM is loaded.
+    // Inject the login interface into the HTML
+    ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <!-- End of chunk from Firebase Authentication UI documentation -->
+
+</body>
+</html>
