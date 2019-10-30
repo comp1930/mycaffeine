@@ -1,7 +1,12 @@
-This is a web project with files organized in the following way.
+This is a web project that tracks a user's cups of caffeine.
+The files are organized as follows. 
 
 The top level contains these files:
-* index.html
+* index.html  (landing page)
+* login.html  (login page)
+* main.html (main page after authentication)
+* common_header.html
+* common_footer.html
 * readme.md
 
 It has the following subfolders:
