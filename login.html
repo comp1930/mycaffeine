@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8"> 
+  <meta charset="utf-8">
   <title>My BCIT Project</title>
   <meta name="comp1930 boilerplate code" content="my bcit project">
   <meta name="author" content="BCIT">
@@ -31,36 +32,39 @@
   <script src="scripts/firebase_config_carly.js"></script>
 
 </head>
+
 <body>
 
   <!-------------------------------------->
   <!-- The following is HTML for layout -->
   <!-------------------------------------->
-  
+
   <!-- Where the common header navigation bar goes -->
   <OBJECT width=100% data="common_header.html">
-      Warning: common_header.html could not be included.
+    Warning: common_header.html could not be included.
   </OBJECT>
-  
+
   <!-- where the login container will be inserted -->
   <h1 id="firebaseui-auth-container"></h1>
+
+  <script src="scripts/create_user.js"></script>
 
   <!--------------------------------------------------------------------------------------------->
   <!-- The following javascript chunk is cop>ied from Firebase Authentication UI documentation -->
   <!--------------------------------------------------------------------------------------------->
-    <script>
+  <script>
     // Initialize the FirebaseUI Widget using Firebase.
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
     var uiConfig = {
       callbacks: {
-        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
           return true;
         },
-        uiShown: function() {
+        uiShown: function () {
           // The widget is rendered.
           // Hide the loader.
           document.getElementById('loader').style.display = 'none';
@@ -82,18 +86,17 @@
       tosUrl: 'main.html',
       // Privacy policy url.
       privacyPolicyUrl: 'main.html',
-        
       accountChooserEnabled: false
-
     };
-    
+
     // The start method will wait until the DOM is loaded.
     // Inject the login interface into the HTML
     ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
+  </script>
   <!---------------------------------------------------------------------------------------------->
   <!-- End of javascript for Firebase Authentication UI                                         -->
   <!---------------------------------------------------------------------------------------------->
 
 </body>
+
 </html>

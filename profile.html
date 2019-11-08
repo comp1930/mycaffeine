@@ -51,7 +51,7 @@
           <a class="nav-link" href="main.html">my count</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="profile.html">my profile</a>
+          <a class="nav-link" href="history.html">my history</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.html">logout</a>
@@ -61,23 +61,25 @@
   </nav>
 
   <!-- where the content of page goes  -->
-  <div class="jumbotron">
-    <h1 class="display-3" align="center">Your Caffeine Count: <span id="caffeinecount"> 0 </span></h1>
-    <p class="lead" align="center">Cup by Cup</p>
-    <hr class="my-2">
-    <p align="center">You don't know what you don't know.</p>
-    <p class="lead" align="center">
-      <a id="addBtn" type="button" class="btn btn-outline-secondarybtn-primary btn-lg" href="#!" role="button">+ Add a
-        cup</a>
-    </p>
-  </div>
 
   <div class="jumbotron">
-      <h1 class="display-3" align="center">Your Caffeine History: </h1>
-      <p class="lead" align="center">Cup by Cup</p>
-      <hr class="my-2">
-      <p align="center" id="history"></p>
+    <h1 class="display-3" align="center">Choose a goal: </h1>
+    <p class="lead" align="center"></p>
+    <hr class="my-2">
+    <div class="custom-control custom-radio">
+      <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+      <label class="custom-control-label" for="customRadio1">One cup per Day</label>
     </div>
+    <div class="custom-control custom-radio">
+      <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+      <label class="custom-control-label" for="customRadio2">One cup per Week</label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+      <label class="custom-control-label" for="customRadio3">Stick to water</label>
+    </div>
+    <button id="goal" type="button" class="btn btn-secondary">Submit</button>
+  </div>
 
 
   <!-- Where the common footer goes -->
@@ -89,14 +91,9 @@
   <!-- Javascript goes here.  Create a new user in our firestore database first. -->
   <!------------------------------------------------------------------------------->
   <script src="scripts/app.js"></script>
-  <script src="scripts/create_user.js"></script>
 
   <script>
-    createUser();
-    showName();
-    showCaffeineCount();
-    setAddListener();
-    showHistory();
+    saveGoal();
   </script>
 
 </body>
