@@ -48,10 +48,9 @@ function setAddListener() {
       var userRef = db.collection('users').doc(user.uid);
 
       // add a date to the history sub-collection
-      var d = new Date();
       userRef.collection("history").add({
-        date: d
-      })
+        date: firebase.firestore.FieldValue.serverTimestamp()
+      });
 
       // increment total field
       // use FieldValue.increment function to increment a field
@@ -128,10 +127,16 @@ function showHistory() {
 function saveGoal() {
 
   // firebase.auth().onAuthStateChanged(function (user) {
-  //   let document.getElementById("goal").
+  //   document.getElementById("goal").
   //     db.collection("users/").doc(user.uid)
   //       .update({
   //           goal: g
   //         })
   // })
+}
+
+function setFormListener() {
+  document.getElementById("customRadio1").addEventListener("click", function (e) {
+    console.log("first button pressed!")
+  });
 }
