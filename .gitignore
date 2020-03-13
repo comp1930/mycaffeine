@@ -3,3 +3,8 @@
 *carly*
 
 .vscode
+
+firebase.json
+firebase.indexes.json
+firestore.rules
+.firebaserc

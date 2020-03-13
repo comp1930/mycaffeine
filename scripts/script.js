@@ -128,7 +128,7 @@ function saveGoal() {
 
   // firebase.auth().onAuthStateChanged(function (user) {
   //   document.getElementById("goal").
-  //     db.collection("users/").doc(user.uid)
+  //     db.collection("users").doc(user.uid)
   //       .update({
   //           goal: g
   //         })
@@ -136,7 +136,7 @@ function saveGoal() {
 }
 
 function setFormListener() {
-  document.getElementById("customRadio1").addEventListener("click", function (e) {
+  document.getElementById("OnePerDay").addEventListener("click", function (e) {
     console.log("first button pressed!")
   });
 }
